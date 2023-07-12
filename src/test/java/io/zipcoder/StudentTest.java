@@ -86,7 +86,7 @@ public class StudentTest {
         s.setLastName(expectedLastName);
 
         // Then: do you work?
-        Assert.assertEquals(expectedLastName, s.getFirstName());
+        Assert.assertEquals(expectedLastName, s.getLastName());
     }
     @Test
     public void testGetLastName() {
@@ -203,9 +203,32 @@ public class StudentTest {
 
     @Test
     public void getAverageExamScore() {
+        // Given: expected average exam scores and regular Student
+        Double[] testScores = new Double[]{9.01, 13.00};
+        Student s = new Student("", "", testScores);
+        double expectedAvgExamScore = (testScores[0] + testScores[1]) / testScores.length;
+
+        // When: add an exam!
+        double actualAvgExamScore = s.getAverageExamScore();
+
+        // Then: should be same as expected!
+        Assert.assertEquals(expectedAvgExamScore, actualAvgExamScore, 0.01);
     }
 
     @Test
-    public void toSting() {
+    public void testToString() {
+        // Given: expected string and regular Student
+        Student s = new Student("Leon", "Hunter", new Double[]{100.0, 50.0});
+        String expectedToString = "Student Name: Leon Hunter\n" +
+                "> Average Score: 75.00\n" +
+                "> Exam Scores:\n" +
+                "\tExam 1 -> 100.00\n" +
+                "\tExam 2 -> 50.00\n";
+
+        // When: change an exam grade
+        String actualToString = s.toString();
+
+        // Then: should be same as expected!
+        Assert.assertEquals(expectedToString, actualToString);
     }
 }

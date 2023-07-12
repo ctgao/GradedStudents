@@ -61,13 +61,13 @@ public class Student {
         return sum / examScores.size();
     }
 
-//    @Override
-    public String toSting(){
+    @Override
+    public String toString(){
         StringBuilder sb = new StringBuilder();
         // student name
         sb.append(String.format("Student Name: %s %s\n", firstName, lastName));
         // average score
-        sb.append(String.format("> Average Score : %.2f\n> ", getAverageExamScore()));
+        sb.append(String.format("> Average Score: %.2f\n> ", getAverageExamScore()));
         sb.append(getExamScores());
         return sb.toString();
     }
