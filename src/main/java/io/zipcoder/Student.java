@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Student {
-    String firstName = "";
-    String lastName = "";
+    String firstName = "First Name";
+    String lastName = "Last Name";
     ArrayList<Double> examScores;
 
     // Constructors

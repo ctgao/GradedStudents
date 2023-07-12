@@ -99,7 +99,31 @@ public class Classroom {
     public HashMap<Student, Character> getGradeBook(){
         HashMap<Student, Character> book = new HashMap<>();
 
+        Student[] studentsByScore = getStudentsByScore();
+        for(int i = 0; i < students.length; i++) {
+            double yourPercentile = (i + 1) / students.length * 100.0;
 
+            if (yourPercentile >= 90) {
+                // you got an A
+                book.put(studentsByScore[i], 'A');
+            }
+            else if (yourPercentile >= 71) {
+                // you got a B
+                book.put(studentsByScore[i], 'B');
+            }
+            else if (yourPercentile >= 50) {
+                // you got a C
+                book.put(studentsByScore[i], 'C');
+            }
+            else if (yourPercentile >= 10) {
+                // you got a D
+                book.put(studentsByScore[i], 'D');
+            }
+            else {
+                // you got an F
+                book.put(studentsByScore[i], 'F');
+            }
+        }
 
         return book;
     }
