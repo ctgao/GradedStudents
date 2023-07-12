@@ -189,7 +189,7 @@ public class StudentTest {
     }
 
     @Test
-    public void setExamScore() {
+    public void testSetExamScore() {
         // Given: expected test scores and regular Student
         Student s = new Student("", "", new Double[]{9.01, 1.0});
         String expectedTestScores = "Exam Scores:\n\tExam 1 -> 9.01\n\tExam 2 -> 13.00\n";
@@ -202,7 +202,7 @@ public class StudentTest {
     }
 
     @Test
-    public void getAverageExamScore() {
+    public void testGetAverageExamScore() {
         // Given: expected average exam scores and regular Student
         Double[] testScores = new Double[]{9.01, 13.00};
         Student s = new Student("", "", testScores);
