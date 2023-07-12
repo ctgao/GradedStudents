@@ -38,7 +38,9 @@ public class Classroom {
                 break;
             }
         }
-        students[i] = student;
+        if(i < students.length) {
+            students[i] = student;
+        }
     }
 
     public void removeStudent(String firstName, String lastName){
@@ -59,7 +61,9 @@ public class Classroom {
         // Now we remove and shift stuff around
         while(i < students.length - 1){
             students[i] = students[i + 1];
+            i++;
         }
+        students[i] = null;
     }
 
     public Student[] getStudentsByScore(){
@@ -77,12 +81,12 @@ public class Classroom {
                     break;
                 } else if (curStudentScore == otherStudentScore) {
                     // same score means compare last name first
-                    if(s.getLastName().compareTo(sortingStudents.get(idx).getLastName()) > 0){
+                    if(s.getLastName().compareTo(sortingStudents.get(idx).getLastName()) < 0){
                         break;
                     }
                     // same score and same LAST NAME means compare first name
                     else if(s.getLastName().compareTo(sortingStudents.get(idx).getLastName()) == 0){
-                        if(s.getFirstName().compareTo(sortingStudents.get(idx).getFirstName()) > 0){
+                        if(s.getFirstName().compareTo(sortingStudents.get(idx).getFirstName()) < 0){
                             break;
                         }
                     }
@@ -103,19 +107,19 @@ public class Classroom {
         for(int i = 0; i < students.length; i++) {
             double yourPercentile = (i + 1) / students.length * 100.0;
 
-            if (yourPercentile >= 90) {
+            if (yourPercentile <= 10) {
                 // you got an A
                 book.put(studentsByScore[i], 'A');
             }
-            else if (yourPercentile >= 71) {
+            else if (yourPercentile <= 29) {
                 // you got a B
                 book.put(studentsByScore[i], 'B');
             }
-            else if (yourPercentile >= 50) {
+            else if (yourPercentile <= 50) {
                 // you got a C
                 book.put(studentsByScore[i], 'C');
             }
-            else if (yourPercentile >= 10) {
+            else if (yourPercentile <= 89) {
                 // you got a D
                 book.put(studentsByScore[i], 'D');
             }

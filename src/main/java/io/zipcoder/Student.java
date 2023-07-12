@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Student {
-    String firstName = "First Name";
-    String lastName = "Last Name";
-    ArrayList<Double> examScores;
+    private String firstName = "First Name";
+    private String lastName = "Last Name";
+    private ArrayList<Double> examScores;
 
     // Constructors
     public Student(){
