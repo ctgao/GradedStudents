@@ -97,6 +97,10 @@ public class Classroom {
 
     // HAVEN'T IMPLEMENTED YET
     public HashMap<Student, Character> getGradeBook(){
-        return null;
+        HashMap<Student, Character> book = new HashMap<>();
+
+
+
+        return book;
     }
 }
