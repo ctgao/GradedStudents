@@ -184,6 +184,30 @@ public class ClassroomTest {
         // Then: equivalent arrays!
         Assert.assertEquals(expectedStudents, actualStudents);
     }
+    @Test
+    public void testGetStudentsByScore3() {
+        // Given: some students
+        Student s1 = new Student("one", "one", new Double[]{90.0});
+        Student s2 = new Student("two", "two", new Double[]{18.0});
+        Student s3 = new Student("three", "three", new Double[]{27.0});
+        Student s4 = new Student("four", "four", new Double[]{80.0});
+        Student s5 = new Student("five", "five", new Double[]{69.0});
+        Student s6 = new Student("six", "six", new Double[]{13.0});
+        Student s7 = new Student("seven", "seven", new Double[]{100.0});
+        Student s8 = new Student("eight", "eight", new Double[]{59.0});
+
+        // Given: their classroom
+        Classroom c = new Classroom(new Student[]{s1, s2, s3, s4, s5, s6, s7, s8});
+
+        // Given: expected ranking array
+        Student[] expectedArray = new Student[]{s7, s1, s4, s5, s8, s3, s2, s6};
+
+        // When: getting the mappings
+        Student[] actualArray = c.getStudentsByScore();
+
+        // Then: equivalent maps?
+        Assert.assertEquals(expectedArray, actualArray);
+    }
 
     @Test
     public void getGradeBook() {
@@ -201,15 +225,16 @@ public class ClassroomTest {
         Classroom c = new Classroom(new Student[]{s1, s2, s3, s4, s5, s6, s7, s8});
 
         // Given: expected HashMap of the grade book
+        // Note: these values were manually calculated - v painful
         HashMap<Student, Character> expectedMapping = new HashMap<>();
         expectedMapping.put(s1, 'B');
         expectedMapping.put(s2, 'D');
         expectedMapping.put(s3, 'D');
         expectedMapping.put(s4, 'B');
         expectedMapping.put(s5, 'C');
-        expectedMapping.put(s6, 'F');
+        expectedMapping.put(s6, 'D');
         expectedMapping.put(s7, 'A');
-        expectedMapping.put(s8, 'D');
+        expectedMapping.put(s8, 'C');
 
         // When: getting the mappings
         HashMap<Student, Character> actualMapping = c.getGradeBook();
